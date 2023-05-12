@@ -11,3 +11,7 @@ import random
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
+
+class DashboardPageView(TemplateView):
+    template_name = 'dashboard.html'
