@@ -1,0 +1,8 @@
+.navbar-nav li {
+    padding-right: 30px;
+}
+
+.nav-link {
+    color: black !important;
+    font-size: 18px !important;
+}
