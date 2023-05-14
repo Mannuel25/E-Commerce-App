@@ -7,22 +7,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Clothings- Pandora{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %}Cart- Pandora{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/main_navbar.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/109fe23f15.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
+    {% include 'main_navbar.html' %}
+
     <section class="home-section" style="background-color: white;" id="btn">
         <div class="text" style="margin-left: 34px;">
-            <legend>Clothings<br /></legend>
-            {% for clothing in clothings %}
-                <h2>{{ clothing.name }}</h2>
-                <div style="margin-left: 25.5px; color: lightslategrey;">{{ clothing.price }}</div>
-                <p>{{ clothing.in_stock }}</p>
-                <p>{{ clothing.image }}</p>
-                <hr>
+            <legend>Cart<br /></legend>
+            {% for item in cart %}
+            <h2>{{ item.name }}</h2>
+            <div style="margin-left: 25.5px; color: lightslategrey;">{{ item.price }}</div>
+            <p>{{ item.in_stock }}</p>
+            <p>{{ item.image }}</p>
+            <hr>
             {% endfor %}
         </div>
 
