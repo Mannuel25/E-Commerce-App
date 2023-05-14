@@ -1,9 +1,8 @@
 .navbar-nav li {
     padding-right: 30px;
 }
-
 .nav-link {
-    color: black !important;
+    color: white !important;
     font-size: 18px !important;
 }
 *{
@@ -62,7 +61,7 @@ span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgb(14, 44, 78),rgb(26, 136, 99));
+    background-image: linear-gradient(to right,rgb(36, 125, 214),rgb(26, 136, 99));
 }
 .form-content {
     width: var(--form-content-width);
@@ -132,7 +131,7 @@ span {
     margin-top: var(--margin-medium);
     color: #f8faec;
     font-size: var(--input-font-szie);
-    background: linear-gradient(rgb(28, 122, 116),rgb(26, 136, 99));
+    background-image: linear-gradient(to right,rgb(36, 125, 214),rgb(26, 136, 99));
     box-shadow: 0px 3px 20px rgba(26, 136, 99,0.5),
                 0px 2px 3px rgba(170, 245, 199, 0.76) inset;
     cursor: pointer;
@@ -147,7 +146,7 @@ span {
     transform: translateX(-50%);
     width: 300px;
     height: 300px;
-    background-color: rgb(59, 189, 145);
+    background-color: rgb(45, 172, 130);
     border-radius: 50%;
     transition: 1s ease;
 }
