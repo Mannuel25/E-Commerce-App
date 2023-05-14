@@ -27,41 +27,41 @@ def all_clothings(request):
     context = {'clothings': clothings}
     return render(request, 'all_clothings.html', context)
 
-login_required(login_url='login')
-def add_clothings(request):
-    if request.method == 'GET':
-        form = ClothingsForm()
-        return render(request, 'add_clothings.html', context={'form': form})
-    elif request.method == 'POST':
-        form = ClothingsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('clothings')
-        else: return render(request, 'add_clothings.html', {'form': form})
+# login_required(login_url='login')
+# def add_clothings(request):
+#     if request.method == 'GET':
+#         form = ClothingsForm()
+#         return render(request, 'add_clothings.html', context={'form': form})
+#     elif request.method == 'POST':
+#         form = ClothingsForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('clothings')
+#         else: return render(request, 'add_clothings.html', {'form': form})
 
 
-@login_required(login_url='login')
-def edit_clothings(request, id):
-    clothings = get_object_or_404(Clothings, id=id)
-    form = ClothingsForm(instance=clothings)
-    if request.method == 'POST':
-        form = ClothingsForm(request.POST, instance=clothings)
-        if form.is_valid():
-            form.save()
-            return redirect('clothings')
-    return render(request, 'edit_clothings.html', {'form': form, 'id': id})
+# @login_required(login_url='login')
+# def edit_clothings(request, id):
+#     clothings = get_object_or_404(Clothings, id=id)
+#     form = ClothingsForm(instance=clothings)
+#     if request.method == 'POST':
+#         form = ClothingsForm(request.POST, instance=clothings)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('clothings')
+#     return render(request, 'edit_clothings.html', {'form': form, 'id': id})
 
-@login_required(login_url='login')
-def clothings_detail(request, id):
-    clothings = get_object_or_404(clothings, id=id)
-    form = ClothingsForm(instance=clothings)
-    context = {'form':form, 'id': id}
-    return render(request, 'clothings_detail.html', context)
+# @login_required(login_url='login')
+# def clothings_detail(request, id):
+#     clothings = get_object_or_404(clothings, id=id)
+#     form = ClothingsForm(instance=clothings)
+#     context = {'form':form, 'id': id}
+#     return render(request, 'clothings_detail.html', context)
 
-@login_required(login_url='login')
-def delete_clothings(request, id):
-    clothings = Clothings.objects.get(id=id)
-    clothings.delete()
-    return redirect('clothings')
+# @login_required(login_url='login')
+# def delete_clothings(request, id):
+#     clothings = Clothings.objects.get(id=id)
+#     clothings.delete()
+#     return redirect('clothings')
 
 
