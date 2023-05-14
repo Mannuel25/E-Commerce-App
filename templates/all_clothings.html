@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Clothings- Pandora{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/clothings.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/109fe23f15.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -16,7 +16,7 @@
 <body>
     <section class="home-section" style="background-color: white;" id="btn">
         <div class="text" style="margin-left: 34px;">
-            <legend>Clothings<br /></legend>
+            <legend class="title">Clothings<br /></legend>
             {% for clothing in clothings %}
                 <h2>{{ clothing.name }}</h2>
                 <div style="margin-left: 25.5px; color: lightslategrey;">{{ clothing.price }}</div>
@@ -25,8 +25,105 @@
                 <hr>
             {% endfor %}
         </div>
-
     </section>
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+        <h3 class="product-name">Product Name</h3>
+        <p class="product-description">Product Description</p>
+        <div class="product-price">$99.99</div>
+        <button class="add-to-cart-button" type="submit">Add to Cart</button>
+      </div>
 </body>
 <script src="{% static 'js/script.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
