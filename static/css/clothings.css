@@ -241,13 +241,14 @@ nav{
   }
   
   .product-description {
-	font-size: 0.875rem;
+	font-size: 1rem;
+    font-weight: bold;
 	margin: 10px 0;
 	text-align: center;
   }
   
   .product-price {
-	font-size: 1.125rem;
+	font-size: 1.2rem;
 	font-weight: bold;
 	margin: 10px 0;
 	color: rgb(36, 125, 214);
@@ -275,11 +276,23 @@ nav{
   .original-price {
 	text-decoration: line-through;
 	color: lightgray;
-	font-size: 0.875rem;
+	font-size: 1.125rem;
   }
   
   .discount-price {
 	color: rgb(36, 125, 214);
 	font-size: 1.125rem;
 	font-weight: bold;
+  }
+  .add_cart{
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .add-to-cart-paragraph{
+    margin-top: 20px;
+  }
+  .cart-icon{
+    border: none;
   }

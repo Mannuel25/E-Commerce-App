@@ -19,115 +19,439 @@
     {% include 'main_navbar.html' %}
     <section class="home-section" style="background-color: white;" id="btn">
         <div class="text" style="margin-left: 34px;">
-            <legend class="title">Clothings<br /></legend>
-            {% for clothing in clothings %}
-                <h2>{{ clothing.name }}</h2>
-                <div style="margin-left: 25.5px; color: lightslategrey;">{{ clothing.price }}</div>
-                <p>{{ clothing.in_stock }}</p>
-                <p>{{ clothing.image }}</p>
-                <hr>
-            {% endfor %}
+            <legend class="title">Clothings</legend>
         </div>
     </section>
     <div class="product-container">
-        <div class="product-card">
+        {% for clothing in clothings %}
+            {% if clothing.id == 1 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/baby-girl-set.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+
+            {% elif clothing.id == 2 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/casual-shirt-navy-blue.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">
+                    <span class="original-price">₦{{ clothing.price }}</span>
+                    <span class="discount-price">₦5,700</span>
+                </div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 3 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/chrismas-female-dress.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 4 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/cuban-ice.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 5 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/women-corporate.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">
+                    <span class="original-price">₦{{ clothing.price }}</span>
+                    <span class="discount-price">₦11,000</span>
+                </div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 6 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/infant-sets.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 7 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/wristwatch.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 8 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/simpsons-short.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">
+                    <span class="original-price">₦{{ clothing.price }}</span>
+                    <span class="discount-price">₦6,700</span>
+                </div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 9 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/womens-sports.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 10 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/nike.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">
+                    <span class="original-price">₦{{ clothing.price }}</span>
+                    <span class="discount-price">₦109,500</span>
+                </div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 11 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/jones-hoodie.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% elif clothing.id == 12 %}
+            <div class="product-card">
+                <img src="{% static 'images/clothings/women-butterfly-necklace.jpg' %}" alt="Product Name" class="product-image">
+                <h3 class="product-name">{{ clothing.name }}</h3>
+                <div class="product-price">₦{{ clothing.price }}</div>
+                <p class="product-description">In Stock: {{ clothing.in_stock }}</p>
+                <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+            </div>
+            {% endif %}
+            {% endfor %}
+        
+          <!-- <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
-            <!-- <p class="product-description">Product Description</p> -->
-            <div class="product-price">$99.99</div> <br>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <p class="product-description">Product Description</p>
+            <div class="product-price">$99.99</div>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+          </div> -->
+          <!-- <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
+            <h3 class="product-name">Product Name</h3>
+            <p class="product-description">Product Description</p>
+            <div class="product-price">$99.99</div>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
           </div>
           <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
-            <h3 class="product-name">Product Name</h3>
-            <p class="product-description">Product Description</p>
-            <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Product Name" class="product-image">
-            <h3 class="product-name">Product Name</h3>
-            <p class="product-description">Product Description</p>
-            <div class="product-price">$99.99</div>
-            <button class="add-to-cart-button" type="submit">Add to Cart</button>
-          </div>
+            <form method="get">
+                  <div class="add_cart">
+                      <div>
+                        <p class="add-to-cart-paragraph">Add to Cart</p>
+                      </div>
+                      <button type="submit" value="{{clothing.name}}" name="cart_input" class="cart-icon">
+                          <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
+                      </button>
+                  </div>
+              </form>
+          </div> -->
     </div>
 </body>
 <script src="{% static 'js/script.js' %}"></script>

@@ -31,12 +31,16 @@ def cart(request):
 
 @login_required(login_url='login')
 def all_clothings(request):
-    search_input = request.GET.get('search-area')
-    print('search......',search_input)
-    if search_input == None:
-        clothings = Clothings.objects.all()
-    else:
-        clothings = Clothings.objects.filter(title__contains=search_input)
+    cart_input = request.GET.get('cart_input')
+    print('search......',cart_input)
+    item = Clothings.objects.get(name=cart_input)
+    print(item)
+    Cart.objects.create(name=item.name, price=item.price, in_stock=item.in_stock)
+    clothings = Clothings.objects.all()
+    # if search_input == None:
+    #     clothings = Clothings.objects.all()
+    # else:
+    #     clothings = Clothings.objects.filter(title__contains=search_input)
     context = {'clothings': clothings}
     return render(request, 'all_clothings.html', context)
 
