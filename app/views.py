@@ -7,6 +7,7 @@ from django.views.generic import TemplateView
 from decouple import config
 import random
 from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming
+from .forms import ClothingsForm
 
 
 class HomePageView(TemplateView):
@@ -27,17 +28,17 @@ def all_clothings(request):
     context = {'clothings': clothings}
     return render(request, 'all_clothings.html', context)
 
-# login_required(login_url='login')
-# def add_clothings(request):
-#     if request.method == 'GET':
-#         form = ClothingsForm()
-#         return render(request, 'add_clothings.html', context={'form': form})
-#     elif request.method == 'POST':
-#         form = ClothingsForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('clothings')
-#         else: return render(request, 'add_clothings.html', {'form': form})
+login_required(login_url='login')
+def add_clothings(request):
+    if request.method == 'GET':
+        form = ClothingsForm()
+        return render(request, 'add_clothings.html', context={'form': form})
+    elif request.method == 'POST':
+        form = ClothingsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('clothings')
+        else: return render(request, 'add_clothings.html', {'form': form})
 
 
 # @login_required(login_url='login')
