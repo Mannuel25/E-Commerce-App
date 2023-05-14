@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import TemplateView
 from decouple import config
 import random
-from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming
+from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart
 from .forms import ClothingsForm
 
 
@@ -16,6 +16,18 @@ class HomePageView(TemplateView):
 
 class DashboardPageView(TemplateView):
     template_name = 'dashboard.html'
+
+@login_required(login_url='login')
+def cart(request):
+    search_input = request.GET.get('search-area')
+    print('search......',search_input)
+    if search_input == None:
+        cart = Cart.objects.all()
+    else:
+        cart = Cart.objects.filter(title__contains=search_input)
+    context = {'cart': cart}
+    return render(request, 'cart.html', context)
+
 
 @login_required(login_url='login')
 def all_clothings(request):
