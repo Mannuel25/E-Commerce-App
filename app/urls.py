@@ -1,11 +1,12 @@
 # from .views import HomePageView, DashboardView, add_clothings, all_clothings,  clothings_detail, delete_clothings, edit_clothings
-from .views import HomePageView, DashboardPageView, all_clothings, add_clothings
+from .views import HomePageView, DashboardPageView, all_clothings, add_clothings, cart
 from django.urls import path, include
 
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('dashboard/', DashboardPageView.as_view(), name='dashboard'),
+    path('cart/', cart, name='cart'),
     path('clothings/', all_clothings, name='clothings'),
     path('clothings/create', add_clothings, name='add_clothings'),
     # path('clothings/view/<int:id>', clothings_detail, name='clothings_detail'),

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming
+from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart
 
 
 class ClothingsForm(forms.ModelForm):
@@ -28,3 +28,9 @@ class GamingForm(forms.ModelForm):
     class Meta:
         fields = '__all__'
         model = Gaming
+
+
+class CartForm(forms.ModelForm):
+    class Meta:
+        fields = '__all__'
+        model = Cart
