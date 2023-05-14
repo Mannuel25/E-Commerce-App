@@ -7,19 +7,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Clothings-E-Commcy{% endblock title %}</title>
+    <title>{% block title %}Clothings-Pandora{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/109fe23f15.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    {% include 'main_navbar.html' %}
     <section class="home-section" style="background-color: white;" id="btn">
         <div class="text" style="margin-left: 34px;">
             <legend>Clothings<br /></legend>
             {% for clothing in clothings %}
-                <h2><a href="{% url 'clothings_detail' clothing.id %}">{{ clothing.name }}</a></h2>
+                <h2>{{ clothing.name }}</h2>
                 <div style="margin-left: 25.5px; color: lightslategrey;">{{ clothing.price }}</div>
                 <p>{{ clothing.in_stock }}</p>
                 <p>{{ clothing.image }}</p>
