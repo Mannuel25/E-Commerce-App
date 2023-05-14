@@ -118,7 +118,7 @@ nav{
 	background-color: #303030;
 	color: white;
 	padding: 16px;
-	font-size: 16px;
+	font-size: 23px;
 	border: none;
 	cursor: pointer;
   }
@@ -188,3 +188,102 @@ nav{
 #searchQuerySubmit:hover {
     cursor: pointer;
 }
+.section{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	width: 700px;
+	align-items: center;
+}
+
+#icon{
+	font-size: 38px;
+	color: white;
+	transition: 1s;
+}
+#icon:hover{
+	color: #ffffffa2;
+}
+.search-bar{
+	display: flex;
+	background-color: #f1f1f1;
+	border-radius: 1.625rem;
+}
+.product-container{
+	display:flex;
+	flex-wrap:wrap;
+	 width:100%;
+	justify-content:center
+  } 
+  .product-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+	  background-color: white; 
+	
+	padding-bottom:1%
+  
+  }
+  
+  .product-image {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+  }
+  
+  .product-name {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin: 10px 0;
+	text-align: center;
+  }
+  
+  .product-description {
+	font-size: 0.875rem;
+	margin: 10px 0;
+	text-align: center;
+  }
+  
+  .product-price {
+	font-size: 1.125rem;
+	font-weight: bold;
+	margin: 10px 0;
+	color: orange;
+  }
+  
+  .add-to-cart-button {
+	padding: 10px 20px;
+	background-color: orange;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-size: 0.875rem;
+	cursor: pointer;
+  }
+  
+  .add-to-cart-button:hover {
+	background-color: darkorange;
+  }
+  
+  .product-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+   }
+  .original-price {
+	text-decoration: line-through;
+	color: lightgray;
+	font-size: 0.875rem;
+  }
+  
+  .discount-price {
+	color: orange;
+	font-size: 1.125rem;
+	font-weight: bold;
+  }
