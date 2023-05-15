@@ -8,6 +8,7 @@ from decouple import config
 import random
 from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart
 from .forms import ClothingsForm
+from users.models import CustomUser
 
 
 class HomePageView(TemplateView):
@@ -32,15 +33,16 @@ def cart(request):
 @login_required(login_url='login')
 def all_clothings(request):
     cart_input = request.GET.get('cart_input')
-    print('search......',cart_input)
-    item = Clothings.objects.get(name=cart_input)
-    print(item)
-    Cart.objects.create(name=item.name, price=item.price, in_stock=item.in_stock)
-    clothings = Clothings.objects.all()
-    # if search_input == None:
-    #     clothings = Clothings.objects.all()
-    # else:
-    #     clothings = Clothings.objects.filter(title__contains=search_input)
+    search_input = request.GET.get('search_input')
+    print('search......',cart_input, search_input, request.user.username)
+    if cart_input != None:
+        item = Clothings.objects.get(name=cart_input)
+        user = CustomUser.objects.get(username=request.user.username)
+        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock)
+    if search_input == None:
+        clothings = Clothings.objects.all()
+    else:
+        clothings = Clothings.objects.filter(name__icontains=search_input)
     context = {'clothings': clothings}
     return render(request, 'all_clothings.html', context)
 

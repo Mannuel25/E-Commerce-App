@@ -11,9 +11,8 @@
                 <div class="section">
                     <li>
                         <div class="search-bar">
-                            <form method="post">
-                                {% csrf_token %}
-                                    <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="search.." value="" />
+                            <form method="get">
+                                <input id="searchQueryInput" type="text" name="search_input" placeholder="search.." value="" />
                             </form>
                             <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
                                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">

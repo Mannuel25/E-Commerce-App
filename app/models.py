@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 
 class Clothings(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
@@ -52,6 +53,7 @@ class Gaming(models.Model):
         return self.name
 
 class Cart(models.Model):
+    customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
