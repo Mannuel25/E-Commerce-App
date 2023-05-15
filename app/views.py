@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from decouple import config
 import random
 from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AddProduct
-from .forms import ClothingsForm, AddProductForm
+from .forms import ClothingsForm, AddProductForm, PhoneAndAccessoriesForm
 from users.models import CustomUser
 from .decorators import for_admins
 
@@ -92,16 +92,16 @@ def add_products(request):
             return redirect('clothings')
         else: return render(request, 'add_products.html', {'form': form})
 
-# @login_required(login_url='login')
-# def edit_clothings(request, id):
-#     clothings = get_object_or_404(Clothings, id=id)
-#     form = ClothingsForm(instance=clothings)
-#     if request.method == 'POST':
-#         form = ClothingsForm(request.POST, instance=clothings)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('clothings')
-#     return render(request, 'edit_clothings.html', {'form': form, 'id': id})
+@login_required(login_url='login')
+def edit_phones(request, id):
+    phones = get_object_or_404(PhoneAndAccessories, id=id)
+    form = PhoneAndAccessoriesForm(instance=phones)
+    if request.method == 'POST':
+        form = PhoneAndAccessoriesForm(request.POST, instance=phones)
+        if form.is_valid():
+            form.save()
+            return redirect('phones_accessories')
+    return render(request, 'edit_phones.html', {'form': form, 'id': id})
 
 # @login_required(login_url='login')
 # def clothings_detail(request, id):
