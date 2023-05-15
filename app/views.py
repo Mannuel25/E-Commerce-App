@@ -100,10 +100,10 @@ def all_clothings(request):
         user = CustomUser.objects.get(username=request.user.username)
         Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
     if search_input == None:
-        clothings = Clothings.objects.all()
+        items = Clothings.objects.all()
     else:
-        clothings = Clothings.objects.filter(name__icontains=search_input)
-    context = {'clothings': clothings}
+        items = Clothings.objects.filter(name__icontains=search_input)
+    context = {'items': items}
     return render(request, 'all_clothings.html', context)
 
 
