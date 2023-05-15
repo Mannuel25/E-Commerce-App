@@ -4,6 +4,7 @@ from users.models import CustomUser
 class Clothings(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -15,6 +16,7 @@ class Clothings(models.Model):
 class PhoneAndAccessories(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -26,6 +28,7 @@ class PhoneAndAccessories(models.Model):
 class HomeAndOffice(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -38,6 +41,7 @@ class HomeAndOffice(models.Model):
 class HealthAndBeauty(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -49,6 +53,7 @@ class HealthAndBeauty(models.Model):
 class Gaming(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -61,6 +66,7 @@ class Cart(models.Model):
     customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -81,6 +87,7 @@ class AddProduct(models.Model):
     category = models.CharField("Categories", choices=categories, max_length=225, null=True, blank=True)
     name = models.CharField(max_length=225, null=True, blank=True)
     price= models.CharField(max_length=225, null=True, blank=True)
+    discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
