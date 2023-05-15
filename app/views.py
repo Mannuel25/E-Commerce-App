@@ -20,7 +20,7 @@ class DashboardPageView(TemplateView):
 
 @login_required(login_url='login')
 def cart(request):
-    search_input = request.GET.get('search-area')
+    search_input = request.GET.get('search_input')
     print('search......',search_input)
     if search_input == None:
         cart = Cart.objects.all()
@@ -28,6 +28,23 @@ def cart(request):
         cart = Cart.objects.filter(title__contains=search_input)
     context = {'cart': cart}
     return render(request, 'cart.html', context)
+
+
+@login_required(login_url='login')
+def phones_accessories(request):
+    cart_input = request.GET.get('cart_input')
+    search_input = request.GET.get('search_input')
+    print('search......', cart_input, search_input, request.user.username)
+    if cart_input != None:
+        item = PhoneAndAccessories.objects.get(name=cart_input)
+        user = CustomUser.objects.get(username=request.user.username)
+        Cart.objects.create(customer=user,name=item.name,price=item.price, in_stock=item.in_stock)
+    if search_input == None:
+        phones = PhoneAndAccessories.objects.all()
+    else:
+        phones = PhoneAndAccessories.objects.filter(name__icontains=search_input)
+    context = {'phones': phones}
+    return render(request, 'all_phones.html', context)
 
 
 @login_required(login_url='login')
