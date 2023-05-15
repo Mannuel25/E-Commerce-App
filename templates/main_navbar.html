@@ -32,21 +32,11 @@
                             <a href="#">Home & Office</a>
                         </div>
                     </li> 
-                    <li>
-                        <a href="{% url 'cart' %}">
-                            <i class='bx bx-cart' id="icon"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class='bx bxs-plus-circle' id="icon"></i>
-                        </a>
-                    </li>
                     </li>
                     {% if request.user.is_superuser %}
                         <li>
-                            <a href="">
-                                <i class='bx bxs-plus-circle' id="icon "></i>
+                            <a href="{% url 'add_products' %}">
+                                <i class='bx bxs-plus-circle' id="icon"></i>
                             </a>
                         </li>
                     {% else %}
