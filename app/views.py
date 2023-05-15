@@ -6,8 +6,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import TemplateView
 from decouple import config
 import random
-from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart
-from .forms import ClothingsForm
+from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AddProduct
+from .forms import ClothingsForm, AddProductForm
 from users.models import CustomUser
 
 
@@ -64,17 +64,29 @@ def all_clothings(request):
     return render(request, 'all_clothings.html', context)
 
 login_required(login_url='login')
-def add_clothings(request):
+def add_products(request):
     if request.method == 'GET':
-        form = ClothingsForm()
-        return render(request, 'add_clothings.html', context={'form': form})
+        form = AddProductForm()
+        return render(request, 'add_products.html', context={'form': form})
     elif request.method == 'POST':
-        form = ClothingsForm(request.POST)
+        form = AddProductForm(request.POST)
+        category, name, price = request.POST.get('category'), request.POST.get('name'), request.POST.get('price')
+        in_stock, image_name = request.POST.get('in_stock'), request.POST.get('image_name')
+        # add inserted product to its respective category table
+        if category == 'Clothings': 
+            Clothings.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+        elif category == 'PhoneAndAccessories': 
+            PhoneAndAccessories.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+        elif category == 'HomeAndOffice':
+            HomeAndOffice.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+        elif category == 'HealthAndBeauty':
+            HealthAndBeauty.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+        elif category == 'Gaming':
+            Gaming.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
         if form.is_valid():
             form.save()
             return redirect('clothings')
-        else: return render(request, 'add_clothings.html', {'form': form})
-
+        else: return render(request, 'add_products.html', {'form': form})
 
 # @login_required(login_url='login')
 # def edit_clothings(request, id):
