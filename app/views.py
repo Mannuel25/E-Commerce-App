@@ -75,18 +75,18 @@ def add_products(request):
     elif request.method == 'POST':
         form = AddProductForm(request.POST)
         category, name, price = request.POST.get('category'), request.POST.get('name'), request.POST.get('price')
-        in_stock, image_name = request.POST.get('in_stock'), request.POST.get('image_name')
+        in_stock, image_name, discounted_price = request.POST.get('in_stock'), request.POST.get('image_name'), request.POST.get('discounted_price')
         # add inserted product to its respective category table
         if category == 'Clothings': 
-            Clothings.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+            Clothings.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
         elif category == 'PhoneAndAccessories': 
-            PhoneAndAccessories.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+            PhoneAndAccessories.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
         elif category == 'HomeAndOffice':
-            HomeAndOffice.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+            HomeAndOffice.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
         elif category == 'HealthAndBeauty':
-            HealthAndBeauty.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+            HealthAndBeauty.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
         elif category == 'Gaming':
-            Gaming.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
+            Gaming.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
         if form.is_valid():
             form.save()
             return redirect('add_products')
