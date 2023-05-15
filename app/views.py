@@ -9,6 +9,7 @@ import random
 from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AddProduct
 from .forms import ClothingsForm, AddProductForm
 from users.models import CustomUser
+from .decorators import for_admins
 
 
 class HomePageView(TemplateView):
@@ -64,6 +65,9 @@ def all_clothings(request):
     return render(request, 'all_clothings.html', context)
 
 login_required(login_url='login')
+
+
+@for_admins
 def add_products(request):
     if request.method == 'GET':
         form = AddProductForm()
