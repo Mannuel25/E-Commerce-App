@@ -80,7 +80,7 @@ class AddProduct(models.Model):
         ('Clothings', 'Clothings'),
         ('PhoneAndAccessories', 'Phone And Accessories'),
         ('HomeAndOffice', 'Home And Office'),
-        ('HealthAndBeauty', 'Health An dBeauty'),
+        ('HealthAndBeauty', 'Health And Beauty'),
         ('Gaming', 'Gaming'),
     )
     added_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
