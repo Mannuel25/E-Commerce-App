@@ -148,6 +148,66 @@ def edit_game_products(request, id):
             return redirect('gaming')
     return render(request, 'edit_gamings.html', {'form': form, 'id': id})
 
+@login_required(login_url='login')
+def health_beauty(request):
+    cart_input = request.GET.get('cart_input')
+    search_input = request.GET.get('search_input')
+    print('search......', cart_input, search_input, request.user.username)
+    if cart_input != None:
+        item = HealthAndBeauty.objects.get(name=cart_input)
+        user = CustomUser.objects.get(username=request.user.username)
+        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+    if search_input == None:
+        items = HealthAndBeauty.objects.all()
+    else:
+        items = HealthAndBeauty.objects.filter(name__icontains=search_input)
+    context = {'items': items}
+    return render(request, 'health_beauty.html', context)
+
+
+@login_required(login_url='login')
+@for_admins
+def edit_health_beauty(request, id):
+    _ = get_object_or_404(HealthAndBeauty, id=id)
+    form = HealthAndBeautyForm(instance=_)
+    if request.method == 'POST':
+        form = HealthAndBeautyForm(request.POST, instance=_)
+        if form.is_valid():
+            form.save()
+            return redirect('health_beauty')
+    return render(request, 'edit_health_beauty.html', {'form': form, 'id': id})
+
+
+@login_required(login_url='login')
+def home_office(request):
+    cart_input = request.GET.get('cart_input')
+    search_input = request.GET.get('search_input')
+    print('search......', cart_input, search_input, request.user.username)
+    if cart_input != None:
+        item = HomeAndOffice.objects.get(name=cart_input)
+        user = CustomUser.objects.get(username=request.user.username)
+        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+    if search_input == None:
+        items = HomeAndOffice.objects.all()
+    else:
+        items = HomeAndOffice.objects.filter(name__icontains=search_input)
+    context = {'items': items}
+    return render(request, 'home_office.html', context)
+
+
+@login_required(login_url='login')
+@for_admins
+def edit_home_office(request, id):
+    _ = get_object_or_404(HomeAndOffice, id=id)
+    form = HomeAndOfficeForm(instance=_)
+    if request.method == 'POST':
+        form = HomeAndOfficeForm(request.POST, instance=_)
+        if form.is_valid():
+            form.save()
+            return redirect('home_office')
+    return render(request, 'edit_home_office.html', {'form': form, 'id': id})
+
+
 
 @login_required(login_url='login')
 @for_admins
