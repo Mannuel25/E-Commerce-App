@@ -89,7 +89,7 @@ def add_products(request):
             Gaming.objects.create(name=name, price=price, in_stock=in_stock, image_name=image_name)
         if form.is_valid():
             form.save()
-            return redirect('clothings')
+            return redirect('add_products')
         else: return render(request, 'add_products.html', {'form': form})
 
 @login_required(login_url='login')
