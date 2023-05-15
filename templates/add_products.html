@@ -19,17 +19,19 @@
     {% include 'main_navbar.html' %}
     <section class="home-section" style="background-color: white;">
         <div class="text" style="margin-left: 34px;">
-            <h4>Add Products</h4>
+            <h4 class="add_products_heading">Add Products</h4>
         </div>
-        <div class="card"
-            style="margin-left: 8px;border-color: blueviolet; border-style: solid; border-radius: 23px; margin-right: 8px;">
+        <div class="card" style="margin: 0 auto;border-color: rgb(36, 125, 214); border-style: solid; border-radius: 23px;">
             <div class="card-body">
                 <form method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button type="submit" class="btn btn-success" box-shadow="none">Save</button>
-                    <button type="button" class="btn btn-danger"><a href="{% url 'clothings' %}"
-                            style="text-decoration: none; color: white;" box-shadow="none">Cancel</a></button>
+                    <div class="form_edit">
+                        <button type="submit" class="btn btn-success" box-shadow="none" id="save">Save</button>
+                        <button type="button" class="btn btn-danger" id="cancel"><a href="{% url 'clothings' %}"
+                                style="text-decoration: none; color: white;" box-shadow="none">Cancel</a></button>
+                    </div>
+                    
                 </form>
             </div>
         </div>
