@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from decouple import config
 import random
 from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AddProduct
-from .forms import ClothingsForm, AddProductForm, PhoneAndAccessoriesForm
+from .forms import ClothingsForm, AddProductForm, PhoneAndAccessoriesForm, GamingForm, HomeAndOfficeForm, HealthAndBeautyForm, CartForm
 from users.models import CustomUser
 from .decorators import for_admins
 
@@ -49,6 +49,19 @@ def phones_accessories(request):
 
 
 @login_required(login_url='login')
+@for_admins
+def edit_phones(request, id):
+    phones = get_object_or_404(PhoneAndAccessories, id=id)
+    form = PhoneAndAccessoriesForm(instance=phones)
+    if request.method == 'POST':
+        form = PhoneAndAccessoriesForm(request.POST, instance=phones)
+        if form.is_valid():
+            form.save()
+            return redirect('phones_accessories')
+    return render(request, 'edit_phones.html', {'form': form, 'id': id})
+
+
+@login_required(login_url='login')
 def all_clothings(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
@@ -56,7 +69,7 @@ def all_clothings(request):
     if cart_input != None:
         item = Clothings.objects.get(name=cart_input)
         user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock)
+        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
     if search_input == None:
         clothings = Clothings.objects.all()
     else:
@@ -64,9 +77,79 @@ def all_clothings(request):
     context = {'clothings': clothings}
     return render(request, 'all_clothings.html', context)
 
-login_required(login_url='login')
+
+@login_required(login_url='login')
+@for_admins
+def edit_clothings(request, id):
+    clothings = get_object_or_404(Clothings, id=id)
+    form = Clothings(instance=clothings)
+    if request.method == 'POST':
+        form = Clothings(request.POST, instance=clothings)
+        if form.is_valid():
+            form.save()
+            return redirect('edit_clothings')
+    return render(request, 'edit_clothings.html', {'form': form, 'id': id})
+
+@login_required(login_url='login')
+def all_clothings(request):
+    cart_input = request.GET.get('cart_input')
+    search_input = request.GET.get('search_input')
+    print('search......',cart_input, search_input, request.user.username)
+    if cart_input != None:
+        item = Clothings.objects.get(name=cart_input)
+        user = CustomUser.objects.get(username=request.user.username)
+        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+    if search_input == None:
+        clothings = Clothings.objects.all()
+    else:
+        clothings = Clothings.objects.filter(name__icontains=search_input)
+    context = {'clothings': clothings}
+    return render(request, 'all_clothings.html', context)
 
 
+@login_required(login_url='login')
+@for_admins
+def edit_clothings(request, id):
+    _ = get_object_or_404(Clothings, id=id)
+    form = ClothingsForm(instance=_)
+    if request.method == 'POST':
+        form = ClothingsForm(request.POST, instance=_)
+        if form.is_valid():
+            form.save()
+            return redirect('clothings')
+    return render(request, 'edit_clothings.html', {'form': form, 'id': id})
+
+@login_required(login_url='login')
+def gaming(request):
+    cart_input = request.GET.get('cart_input')
+    search_input = request.GET.get('search_input')
+    print('search......', cart_input, search_input, request.user.username)
+    if cart_input != None:
+        item = Gaming.objects.get(name=cart_input)
+        user = CustomUser.objects.get(username=request.user.username)
+        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+    if search_input == None:
+        gamings = Gaming.objects.all()
+    else:
+        gamings = Gaming.objects.filter(name__icontains=search_input)
+    context = {'gamings': gamings}
+    return render(request, 'gaming.html', context)
+
+
+@login_required(login_url='login')
+@for_admins
+def edit_game_products(request, id):
+    _ = get_object_or_404(Gaming, id=id)
+    form = GamingForm(instance=_)
+    if request.method == 'POST':
+        form = GamingForm(request.POST, instance=_)
+        if form.is_valid():
+            form.save()
+            return redirect('gaming')
+    return render(request, 'edit_gamings.html', {'form': form, 'id': id})
+
+
+@login_required(login_url='login')
 @for_admins
 def add_products(request):
     if request.method == 'GET':
@@ -92,16 +175,7 @@ def add_products(request):
             return redirect('add_products')
         else: return render(request, 'add_products.html', {'form': form})
 
-@login_required(login_url='login')
-def edit_phones(request, id):
-    phones = get_object_or_404(PhoneAndAccessories, id=id)
-    form = PhoneAndAccessoriesForm(instance=phones)
-    if request.method == 'POST':
-        form = PhoneAndAccessoriesForm(request.POST, instance=phones)
-        if form.is_valid():
-            form.save()
-            return redirect('phones_accessories')
-    return render(request, 'edit_phones.html', {'form': form, 'id': id})
+
 
 # @login_required(login_url='login')
 # def clothings_detail(request, id):
