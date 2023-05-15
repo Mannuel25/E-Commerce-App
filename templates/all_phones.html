@@ -27,13 +27,28 @@
             <div class="product-card">
                 <img src="../static/images/phones_accessories/{{phone.image_name}}" alt="Product Name" class="product-image" style="height: 100%;">
                 <h3 class="product-name">{{ phone.name }}</h3>
+                {% if phone.discounted_price %}
+                <div class="product-price">
+                    <span class="original-price">₦{{ phone.price }}</span>
+                    <span class="discount-price">₦{{ phone.discounted_price}}</span>
+                </div>
+                {% else %}
                 <div class="product-price">₦{{ phone.price }}</div>
+                {% endif %}
                 <p class="product-description">In Stock: {{ phone.in_stock }}</p>
                 {% if request.user.is_superuser %}
-                <p class="add-to-cart-paragraph">Edit product</p>
-                <a href="{% url 'edit_phones' phone.id %}"><button type="text" class="cart-icon">
-                        <i class='bx bx-edit-alt' id="cart"></i>
-                    </button></a>
+                <div class="add_cart">
+                    <div>
+                        <p class="add-to-cart-paragraph">Edit item</p>
+                    </div>
+                    <div>
+                        <a href="{% url 'edit_phones' phone.id %}"><button type="text" class="cart-icon">
+                            <i class='bx bx-edit-alt add-to-cart-button' id="cart"></i>
+                        </button></a>
+                    </div>
+                   
+                </div>
+                
                 {% else %}
                 <form method="get">
                     <div class="add_cart">
