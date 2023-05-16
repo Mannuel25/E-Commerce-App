@@ -37,9 +37,23 @@ def phones_accessories(request):
     search_input = request.GET.get('search_input')
     print('search......', cart_input, search_input, request.user.username)
     if cart_input != None:
-        item = PhoneAndAccessories.objects.get(name=cart_input)
+        item = AddProduct.objects.get(name=cart_input)
         user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user,name=item.name,price=item.price, in_stock=item.in_stock)
+        # check if the item has been added to cart before
+        check_item = Cart.objects.filter(name=item.name)
+        if check_item.exists():
+            _ = Cart.objects.get(name=item.name)
+            _.no_of_orders += 1
+            # since the item has been added to cart, reduce the no of in_stock
+            item.in_stock -= 1
+            item_ = PhoneAndAccessories.objects.get(name=item.name)
+            item_.in_stock -= 1
+            print(_.no_of_orders, item.in_stock, item_.in_stock)
+            _.save()
+            item.save()
+            item_.save()
+        else:
+            Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock, discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
     if search_input == None:
         phones = PhoneAndAccessories.objects.all()
     else:
@@ -60,45 +74,30 @@ def edit_phones(request, id):
             return redirect('phones_accessories')
     return render(request, 'edit_phones.html', {'form': form, 'id': id})
 
-
 @login_required(login_url='login')
 def all_clothings(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
     print('search......',cart_input, search_input, request.user.username)
     if cart_input != None:
-        item = Clothings.objects.get(name=cart_input)
+        item = AddProduct.objects.get(name=cart_input)
         user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
-    if search_input == None:
-        clothings = Clothings.objects.all()
-    else:
-        clothings = Clothings.objects.filter(name__icontains=search_input)
-    context = {'clothings': clothings}
-    return render(request, 'all_clothings.html', context)
-
-
-@login_required(login_url='login')
-@for_admins
-def edit_clothings(request, id):
-    clothings = get_object_or_404(Clothings, id=id)
-    form = Clothings(instance=clothings)
-    if request.method == 'POST':
-        form = Clothings(request.POST, instance=clothings)
-        if form.is_valid():
-            form.save()
-            return redirect('edit_clothings')
-    return render(request, 'edit_clothings.html', {'form': form, 'id': id})
-
-@login_required(login_url='login')
-def all_clothings(request):
-    cart_input = request.GET.get('cart_input')
-    search_input = request.GET.get('search_input')
-    print('search......',cart_input, search_input, request.user.username)
-    if cart_input != None:
-        item = Clothings.objects.get(name=cart_input)
-        user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+        # check if the item has been added to cart before
+        check_item = Cart.objects.filter(name=item.name)
+        if check_item.exists():
+            _ = Cart.objects.get(name=item.name)
+            _.no_of_orders += 1
+            _.save()
+            # since the item has been added to cart, reduce the no of in_stock
+            item.in_stock -= 1
+            item_ = Clothings.objects.get(name=item.name)
+            item_.in_stock -= 1
+            print(_.no_of_orders, item.in_stock, item_.in_stock)
+            _.save()
+            item.save()
+            item_.save()
+        else:
+            Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock, discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
     if search_input == None:
         items = Clothings.objects.all()
     else:
@@ -125,9 +124,24 @@ def gaming(request):
     search_input = request.GET.get('search_input')
     print('search......', cart_input, search_input, request.user.username)
     if cart_input != None:
-        item = Gaming.objects.get(name=cart_input)
+        item = AddProduct.objects.get(name=cart_input)
+        print(item.name, item.price, item.in_stock, item.discounted_price, item.image_name, item.category)
         user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+        # check if the item has been added to cart before
+        check_item = Cart.objects.filter(name=item.name)
+        if check_item.exists():
+            _ = Cart.objects.get(name=item.name)
+            _.no_of_orders += 1
+            _.save()
+            # since the item has been added to cart, reduce the no of in_stock
+            item.in_stock -= 1
+            item_ = Gaming.objects.get(name=item.name)
+            item_.in_stock -= 1
+            _.save()
+            item.save()
+            item_.save()
+        else:
+            Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock, discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
     if search_input == None:
         gamings = Gaming.objects.all()
     else:
@@ -154,9 +168,23 @@ def health_beauty(request):
     search_input = request.GET.get('search_input')
     print('search......', cart_input, search_input, request.user.username)
     if cart_input != None:
-        item = HealthAndBeauty.objects.get(name=cart_input)
+        item = AddProduct.objects.get(name=cart_input)
         user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+        # check if the item has been added to cart before
+        check_item = Cart.objects.filter(name=item.name)
+        if check_item.exists():
+            _ = Cart.objects.get(name=item.name)
+            _.no_of_orders += 1
+            _.save()
+            # since the item has been added to cart, reduce the no of in_stock
+            item.in_stock -= 1
+            item_ = HealthAndBeauty.objects.get(name=item.name)
+            item_.in_stock -= 1
+            _.save()
+            item.save()
+            item_.save()
+        else:
+            Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock, discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
     if search_input == None:
         items = HealthAndBeauty.objects.all()
     else:
@@ -184,9 +212,24 @@ def home_office(request):
     search_input = request.GET.get('search_input')
     print('search......', cart_input, search_input, request.user.username)
     if cart_input != None:
-        item = HomeAndOffice.objects.get(name=cart_input)
+        item = AddProduct.objects.get(name=cart_input)
         user = CustomUser.objects.get(username=request.user.username)
-        Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,discounted_price=discounted_price)
+        # check if the item has been added to cart before
+        check_item = Cart.objects.filter(name=item.name)
+        if check_item.exists():
+            _ = Cart.objects.get(name=item.name)
+            _.no_of_orders += 1
+            _.save()
+            # since the item has been added to cart, reduce the no of in_stock
+            item.in_stock -= 1
+            item_ = HomeAndOffice.objects.get(name=item.name)
+            item_.in_stock -= 1
+            _.save()
+            item.save()
+            item_.save()
+        else:
+            Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,
+                discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
     if search_input == None:
         items = HomeAndOffice.objects.all()
     else:

@@ -18,20 +18,61 @@
 
 <body>
     {% include 'main_navbar.html' %}
-
     <section class="home-section" style="background-color: white;" id="btn">
         <div class="text" style="margin-left: 34px;">
-            <legend>Cart<br /></legend>
-            {% for item in cart %}
-            <h2>{{ item.name }}</h2>
-            <div style="margin-left: 25.5px; color: lightslategrey;">{{ item.price }}</div>
-            <p>{{ item.in_stock }}</p>
-            <p>{{ item.image }}</p>
-            <hr>
-            {% endfor %}
+            <legend class="title clothing-heading">Cart</legend>
+        </div>
+    </section>
+    <div class="product-container">
+        {% for item in cart %}
+        <div class="product-card">
+            {% if item.category == 'Clothings' %}
+            <img src="../static/images/clothings/{{item.image_name}}" alt="Product Name" class="product-image"
+                style="height: 100%;">
+            {% elif item.category == 'PhoneAndAccessories' %}
+            <img src="../static/images/phones_accessories/{{item.image_name}}" alt="Product Name" class="product-image"
+                style="height: 100%;">
+            {% elif item.category == 'HomeAndOffice' %}
+            <img src="../static/images/home_office/{{item.image_name}}" alt="Product Name" class="product-image"
+                style="height: 100%;">
+            {% elif item.category == 'HealthAndBeauty' %}
+            <img src="../static/images/health_beauty/{{item.image_name}}" alt="Product Name" class="product-image"
+                style="height: 100%;">
+            {% elif item.category == 'Gaming' %}
+            <img src="../static/images/gamings_accessories/{{item.image_name}}" alt="Product Name" class="product-image"
+                style="height: 100%;">
+            {% endif %}
+            <h3 class="product-name">{{ item.name }}</h3>
+            {% if item.discounted_price %}
+            <div class="product-price">
+                <span class="discount-price">₦{{ item.discounted_price}}</span>
+            </div>
+            {% else %}
+            <div class="product-price">₦{{ item.price }}</div>
+            {% endif %}
+            {% if request.user.is_superuser %}
+            <div class="add_cart">
+                <div>
+                    <p class="add-to-cart-paragraph">Edit item</p>
+                </div>
+                <div>
+                    <a href="{% url 'edit_clothings' item.id %}"><button type="text" class="cart-icon">
+                            <i class='bx bx-edit-alt add-to-cart-button' id="cart"></i>
+                        </button></a>
+                </div>
+
+            </div>
+
+            {% else %}
+            <div>
+                <p class="add-to-cart-paragraph">Order(s) placed: {{ item.no_of_orders }}</p>
+            </div>
+            {% endif %}
+
         </div>
 
-    </section>
+        {% endfor %}
+    </div>
 </body>
 <script src="{% static 'js/script.js' %}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

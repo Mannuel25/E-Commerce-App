@@ -68,6 +68,8 @@ class Cart(models.Model):
     price= models.CharField(max_length=225, null=True, blank=True)
     discounted_price= models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
+    no_of_orders = models.IntegerField(default=1, null=True, blank=True)
+    category = models.CharField(max_length=225, null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
