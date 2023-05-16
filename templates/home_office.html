@@ -37,7 +37,11 @@
             {% else %}
             <div class="product-price">₦{{ item.price }}</div>
             {% endif %}
+            {% if item.in_stock > 0 %}
             <p class="product-description">In Stock: {{ item.in_stock }}</p>
+            {% else %}
+            <p class="product-description" style="color: red">Out of Stock!!</p>
+            {% endif %}
             {% if request.user.is_superuser %}
             <div class="add_cart">
                 <div>
@@ -53,6 +57,7 @@
 
             {% else %}
             <form method="get">
+                {%if item.in_stock > 0 %}
                 <div class="add_cart">
                     <div>
                         <p class="add-to-cart-paragraph">Add to Cart</p>
@@ -61,6 +66,7 @@
                         <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
                     </button>
                 </div>
+                {%endif %}
             </form>
             {% endif %}
 
