@@ -25,7 +25,11 @@
     <div class="product-container">
         {% for phone in phones %}
             <div class="product-card">
+                {% if phone.in_stock > 0 %}
                 <img src="../static/images/phones_accessories/{{phone.image_name}}" alt="Product Name" class="product-image" style="height: 100%;">
+                {% else %}
+                <img src="../static/images/phones_accessories/{{phone.image_name}}" alt="Product Name" class="product-image" style="height: 100%; opacity: .5;">
+                {% endif %}
                 <h3 class="product-name">{{ phone.name }}</h3>
                 {% if phone.discounted_price %}
                 <div class="product-price">
@@ -33,6 +37,7 @@
                     <span class="discount-price">₦{{ phone.discounted_price}}</span>
                 </div>
                 {% else %}
+                <span class="product-price">₦{{ phone.price }}</span>
                 {% endif %}
                 {% if phone.in_stock > 0 %}
                 <p class="product-description">In Stock: {{ phone.in_stock }}</p>

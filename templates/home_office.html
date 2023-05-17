@@ -26,8 +26,11 @@
     <div class="product-container">
         {% for item in items %}
         <div class="product-card">
-            <img src="../static/images/home_office/{{item.image_name}}" alt="Product Name" class="product-image"
-                style="height: 100%;">
+            {% if item.in_stock > 0 %}
+            <img src="../static/images/home_office/{{item.image_name}}" alt="Product Name" class="product-image" style="height: 100%;">
+            {% else %}
+            <img src="../static/images/home_office/{{item.image_name}}" alt="Product Name" class="product-image" style="height: 100%; opacity: .5;">
+            {% endif %}
             <h3 class="product-name">{{ item.name }}</h3>
             {% if item.discounted_price %}
             <div class="product-price">
