@@ -27,7 +27,7 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="form_edit">
-                        <button type="submit" class="btn btn-success" box-shadow="none" id="save">Save</button>
+                        <button type="submit" class="btn btn-success" box-shadow="none" id="save">Add</button>
                         <button type="button" class="btn btn-danger" id="cancel"><a href="{% url 'clothings' %}"
                                 style="text-decoration: none; color: white;" box-shadow="none">Cancel</a></button>
                     </div>

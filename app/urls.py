@@ -17,6 +17,5 @@ urlpatterns = [
     path('health_beauty/edit/<int:id>', edit_health_beauty, name='edit_health_beauty'),
     path('home_office/', home_office, name='home_office'),
     path('home_office/edit/<int:id>', edit_home_office, name='edit_home_office'),
-    # path('clothings/delete/<int:id>', delete_clothings, name='delete_clothings'),
 
 ]

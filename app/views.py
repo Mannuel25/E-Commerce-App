@@ -279,18 +279,3 @@ def add_products(request):
         else: return render(request, 'add_products.html', {'form': form})
 
 
-
-# @login_required(login_url='login')
-# def clothings_detail(request, id):
-#     clothings = get_object_or_404(clothings, id=id)
-#     form = ClothingsForm(instance=clothings)
-#     context = {'form':form, 'id': id}
-#     return render(request, 'clothings_detail.html', context)
-
-# @login_required(login_url='login')
-# def delete_clothings(request, id):
-#     clothings = Clothings.objects.get(id=id)
-#     clothings.delete()
-#     return redirect('clothings')
-
-
