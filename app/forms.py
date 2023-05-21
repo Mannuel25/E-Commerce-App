@@ -1,11 +1,12 @@
 from django import forms
-from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AddProduct
+from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AllProducts
 
 
 class ClothingsForm(forms.ModelForm):
     class Meta:
         fields = '__all__'
         model = Clothings
+
 
 class PhoneAndAccessoriesForm(forms.ModelForm):
     class Meta:
@@ -17,6 +18,7 @@ class HomeAndOfficeForm(forms.ModelForm):
     class Meta:
         fields = '__all__'
         model = HomeAndOffice
+
 
 class HealthAndBeautyForm(forms.ModelForm):
     class Meta:
@@ -36,7 +38,7 @@ class CartForm(forms.ModelForm):
         model = Cart
 
 
-class AddProductForm(forms.ModelForm):
+class AllProductsForm(forms.ModelForm):
     class Meta:
         fields = '__all__'
-        model = AddProduct
+        model = AllProducts

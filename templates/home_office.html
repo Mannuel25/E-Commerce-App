@@ -48,11 +48,13 @@
             {% if request.user.is_superuser %}
             <div class="add_cart">
                 <div>
-                    <p class="add-to-cart-paragraph">Edit item</p>
-                </div>
-                <div>
                     <a href="{% url 'edit_home_office' item.id %}"><button type="text" class="cart-icon">
                             <i class='bx bx-edit-alt add-to-cart-button' id="cart"></i>
+                        </button></a>
+                </div>
+                <div>
+                    <a href="{% url 'delete_home_office' item.id %}"><button type="text" class="cart-icon">
+                            <i class='bx bx-trash add-to-cart-button' id="cart"></i>
                         </button></a>
                 </div>
 

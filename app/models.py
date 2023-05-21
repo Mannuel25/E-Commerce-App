@@ -77,7 +77,7 @@ class Cart(models.Model):
     def __str__(self):
         return self.name
 
-class AddProduct(models.Model):
+class AllProducts(models.Model):
     categories = (
         ('Clothings', 'Clothings'),
         ('PhoneAndAccessories', 'Phone And Accessories'),
