@@ -65,11 +65,15 @@
                         <div>
                             <p class="add-to-cart-paragraph">Add to Cart</p>
                         </div>
-                        <button type="submit" value="{{phone.name}}" name="cart_input" class="cart-icon">
+                        {% if request.user.is_authenticated %}
+                        <button type="submit" value="{{item.name}}" name="cart_input" class="cart-icon">
                             <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
                         </button>
+                        {% else %}
+                        <a href="{% url 'login' %}"><i class='bx bx-cart-add add-to-cart-button' id="cort"></i></a>
+                        {% endif %}
                     </div>
-                    {% endif %}
+                    {%endif %}
                 </form>
                 {% endif %}
       

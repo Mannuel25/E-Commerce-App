@@ -17,7 +17,11 @@
 </head>
 
 <body>
+  {% if request.user.is_authenticated %}
   {% include 'main_navbar.html' %}
+  {% else %}
+  {% include 'navbar.html' %}
+  {% endif %}
   <section class="home-section" style="background-color: white;" id="btn">
     <div class="text" style="margin-left: 34px;">
       <legend class="title clothing-heading">Clothings</legend>
@@ -67,17 +71,18 @@
           <div>
             <p class="add-to-cart-paragraph">Add to Cart</p>
           </div>
+          {% if request.user.is_authenticated %}
           <button type="submit" value="{{item.name}}" name="cart_input" class="cart-icon">
             <i class='bx bx-cart-add add-to-cart-button' id="cort"></i>
           </button>
+          {% else %}
+            <a href="{% url 'login' %}"><i class='bx bx-cart-add add-to-cart-button' id="cort"></i></a>
+          {% endif %}
         </div>
       {%endif %}
       </form>
       {% endif %}
-      
-
     </div>
-
     {% endfor %}
   </div>
 </body>

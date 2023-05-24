@@ -4,10 +4,6 @@
     text-align: center;
     margin-top: 40px;
 }
-.nav-link {
-    color: white !important;
-    font-size: 18px !important;
-}
 * {
     padding: 0;
     margin: 0;
@@ -114,7 +110,7 @@ nav{
 .dropbtn {
 	background-color: #303030;
 	color: white;
-	padding: 16px;
+	padding: 9px;
 	font-size: 23px;
 	border: none;
 	cursor: pointer;
@@ -226,6 +222,9 @@ nav{
 	padding-bottom:1%
   
   }
+  .qty-btns{
+    display: flex;
+  }
   
 .product-image {
     width: 100%;
@@ -324,4 +323,16 @@ nav{
   display: flex;
   justify-content: space-between;
   margin-top: 1.2rem;
+}
+.navbar-nav li {
+  padding-right: 30px;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 23px !important;
+}
+
+.navbar-item {
+  color: white !important;
 }

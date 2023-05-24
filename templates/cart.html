@@ -13,7 +13,44 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
 
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+    </style>
 </head>
 
 <body>
@@ -22,7 +59,11 @@
         <div class="text" style="margin-left: 34px;">
             <legend class="title clothing-heading">Cart</legend>
         </div>
+        <div class="tooltip">Hover over me
+            <span class="tooltiptext">Tooltip text</span>
+        </div>
     </section>
+
     <div class="product-container">
         {% for item in cart %}
         <div class="product-card">
@@ -50,25 +91,21 @@
             {% else %}
             <div class="product-price">₦{{ item.price }}</div>
             {% endif %}
-            {% if request.user.is_superuser %}
-            <div class="add_cart">
-                <div>
-                    <p class="add-to-cart-paragraph">Edit item</p>
-                </div>
-                <div>
-                    <a href="{% url 'edit_clothings' item.id %}"><button type="text" class="cart-icon">
-                            <i class='bx bx-edit-alt add-to-cart-button' id="cart"></i>
-                        </button></a>
-                </div>
-
-            </div>
-
-            {% else %}
             <div>
                 <p class="add-to-cart-paragraph">Order(s) placed: {{ item.no_of_orders }}</p>
             </div>
-            {% endif %}
-
+            <form method="get" class="qty-btns"> 
+    
+                <div class="add_cart">
+                    <button type="submit" value="{{item.name}}" name="reduce_quantity" class="cart-icon" title="Reduce Quantity">
+                        <i class='bx bx-minus add-to-cart-button' id="cort"></i>
+                    </button>
+                    <button type="submit" value="{{item.name}}" name="increase_quantity" class="cart-icon" title="Increase Quantity">
+                        <i class='bx bx-plus add-to-cart-button' id="cort"></i>
+                    </button>
+                </div>
+                
+            </form>
         </div>
 
         {% endfor %}

@@ -9,6 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <div class="dropdown-divider"></div>
+                <li class="dropdown">
+                    <button class="dropbtn">Products</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'clothings' %}">Clothings</a>
+                        <a href="{% url 'phones_accessories' %}">Phones & Accesories</a>
+                        <a href="{% url 'gaming' %}">Gaming</a>
+                        <a href="{% url 'health_beauty' %}">Health & Beauty</a>
+                        <a href="{% url 'home_office' %}">Home & Office</a>
+                    </div>
+                </li>
                 <li class="navbar-item">
                     <a href="{% url 'login' %}" class="nav-link">Login</a>
                 </li>
