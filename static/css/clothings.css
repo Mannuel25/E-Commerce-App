@@ -307,6 +307,11 @@ nav{
     font-size: 1.1rem;
     font-weight: bold;
   }
+  .quantity-text {
+    /* margin-top: 20px; */
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
   .cart-icon{
     border: none;
   }
