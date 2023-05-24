@@ -27,12 +27,11 @@ def cart(request):
     if search_input == None:
         cart = Cart.objects.all()
     else:
-        cart = Cart.objects.filter(title__contains=search_input)
+        cart = Cart.objects.filter(name__icontains=search_input)
     context = {'cart': cart}
     return render(request, 'cart.html', context)
 
 
-@login_required(login_url='login')
 def phones_accessories(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
@@ -78,7 +77,6 @@ def edit_phones(request, id):
     return render(request, 'edit_phones.html', {'form': form, 'id': id})
 
 
-@login_required(login_url='login')
 def all_clothings(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
@@ -102,7 +100,7 @@ def all_clothings(request):
             item_.save()
         else:
             Cart.objects.create(customer=user, name=item.name, price=item.price, in_stock=item.in_stock,
-                                discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
+                discounted_price=item.discounted_price, image_name=item.image_name, category=item.category)
     if search_input == None:
         items = Clothings.objects.all()
     else:
@@ -124,15 +122,13 @@ def edit_clothings(request, id):
     return render(request, 'edit_clothings.html', {'form': form, 'id': id})
 
 
-@login_required(login_url='login')
 def gaming(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
     print('search......', cart_input, search_input, request.user.username)
     if cart_input != None:
         item = AllProducts.objects.get(name=cart_input)
-        print(item.name, item.price, item.in_stock,
-              item.discounted_price, item.image_name, item.category)
+        print(item.name, item.price, item.in_stock, item.discounted_price, item.image_name, item.category)
         user = CustomUser.objects.get(username=request.user.username)
         # check if the item has been added to cart before
         check_item = Cart.objects.filter(name=item.name)
@@ -171,7 +167,6 @@ def edit_game_products(request, id):
     return render(request, 'edit_gamings.html', {'form': form, 'id': id})
 
 
-@login_required(login_url='login')
 def health_beauty(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
@@ -216,7 +211,6 @@ def edit_health_beauty(request, id):
     return render(request, 'edit_health_beauty.html', {'form': form, 'id': id})
 
 
-@login_required(login_url='login')
 def home_office(request):
     cart_input = request.GET.get('cart_input')
     search_input = request.GET.get('search_input')
@@ -275,8 +269,7 @@ def add_products(request):
             'in_stock'), request.POST.get('image_name'), request.POST.get('discounted_price')
         # add inserted product to its respective category table
         if category == 'Clothings':
-            Clothings.objects.create(name=name, price=price, in_stock=in_stock,
-                                     image_name=image_name, discounted_price=discounted_price)
+            Clothings.objects.create(name=name, price=price, in_stock=in_stock,image_name=image_name, discounted_price=discounted_price)
         elif category == 'PhoneAndAccessories':
             PhoneAndAccessories.objects.create(
                 name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
@@ -287,8 +280,7 @@ def add_products(request):
             HealthAndBeauty.objects.create(
                 name=name, price=price, in_stock=in_stock, image_name=image_name, discounted_price=discounted_price)
         elif category == 'Gaming':
-            Gaming.objects.create(name=name, price=price, in_stock=in_stock,
-                                  image_name=image_name, discounted_price=discounted_price)
+            Gaming.objects.create(name=name, price=price, in_stock=in_stock,image_name=image_name, discounted_price=discounted_price)
         if form.is_valid():
             form.save()
             return redirect('add_products')
