@@ -17,7 +17,11 @@
 </head>
 
 <body>
+    {% if request.user.is_authenticated %}
     {% include 'main_navbar.html' %}
+    {% else %}
+    {% include 'navbar.html' %}
+    {% endif %}
     <section class="home-section" style="background-color: white;" id="btn">
         <div class="text" style="margin-left: 34px;">
             <legend class="title clothing-heading">Gaming</legend>
