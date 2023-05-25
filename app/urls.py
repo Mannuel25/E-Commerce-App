@@ -1,11 +1,13 @@
-from .views import HomePageView, DashboardPageView, all_clothings, add_products, cart, phones_accessories, edit_phones, edit_clothings, gaming, edit_game_products, health_beauty, edit_health_beauty, home_office, edit_home_office, delete_clothings, delete_phone_accessories, delete_gaming, delete_health_beauty, delete_home_office
+from .views import HomePageView, DashboardPageView, all_clothings, add_products, cart, phones_accessories, edit_phones, edit_clothings, gaming, edit_game_products, health_beauty, edit_health_beauty, home_office, edit_home_office, delete_clothings, delete_phone_accessories, delete_gaming, delete_health_beauty, delete_home_office, delete_cart_items, purchase_item
 from django.urls import path, include
 
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('dashboard/', DashboardPageView.as_view(), name='dashboard'),
+    path('purchase/<int:id>', purchase_item, name='purchase'),
     path('cart/', cart, name='cart'),
+    path('cart/delete/<int:id>', delete_cart_items, name='delete_cart_items'),
     path('clothings/', all_clothings, name='clothings'),
     path('clothings/edit/<int:id>', edit_clothings, name='edit_clothings'),
     path('clothings/delete/<int:id>', delete_clothings, name='delete_clothings'),

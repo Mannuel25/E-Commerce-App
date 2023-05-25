@@ -3,8 +3,8 @@ from users.models import CustomUser
 
 class Clothings(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
-    price= models.CharField(max_length=225, null=True, blank=True)
-    discounted_price= models.CharField(max_length=225, null=True, blank=True)
+    price = models.CharField(max_length=225, null=True, blank=True)
+    discounted_price = models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -15,8 +15,8 @@ class Clothings(models.Model):
 
 class PhoneAndAccessories(models.Model):
     name = models.CharField(max_length=225, null=True, blank=True)
-    price= models.CharField(max_length=225, null=True, blank=True)
-    discounted_price= models.CharField(max_length=225, null=True, blank=True)
+    price = models.CharField(max_length=225, null=True, blank=True)
+    discounted_price = models.CharField(max_length=225, null=True, blank=True)
     in_stock = models.IntegerField(null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -65,12 +65,12 @@ class Gaming(models.Model):
 class Cart(models.Model):
     customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=225, null=True, blank=True)
-    price= models.CharField(max_length=225, null=True, blank=True)
-    discounted_price= models.CharField(max_length=225, null=True, blank=True)
-    in_stock = models.IntegerField(null=True, blank=True)
+    price = models.CharField(max_length=225, null=True, blank=True)
+    discounted_price = models.CharField(max_length=225, null=True, blank=True)
     no_of_orders = models.IntegerField(default=1, null=True, blank=True)
     category = models.CharField(max_length=225, null=True, blank=True)
     image_name = models.CharField(max_length=225, null=True, blank=True)
+    total_amount = models.CharField(max_length=225, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
