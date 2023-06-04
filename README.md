@@ -62,8 +62,8 @@ python manage.py runserver
 ```
 <hr>
 
-## Products🛍️
-#### Every product to be added must be grouped into the following categories: `clothings, phones_accessories, gamings_accessories, health_beauty, home_office`. Each product should have an image which should be added in their respective folder:
+## Products 🛍️
+##### Every product to be added must be grouped into the following categories: `clothings, phones_accessories, gamings_accessories, health_beauty, home_office`. Each product should have an image which should be added in their respective folder:
     - Clothings: Create a `clothings` folder and add all your images.
     - Phones & Accessories: Create a `phones_accessories` folder and add all your images.
     - Gamings: Create a `gamings_accessories` folder and add all your images.
