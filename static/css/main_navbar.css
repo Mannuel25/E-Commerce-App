@@ -355,3 +355,40 @@ nav{
 .cart-icon{
   border: none;
 }
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: rgb(36, 125, 214);
+}
+.product-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.product-description {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: rgb(36, 125, 214);
+}
+.original-price {
+  text-decoration: line-through;
+  color: lightgray;
+  font-size: 1.125rem;
+}
+
+.discount-price {
+  color: rgb(36, 125, 214);
+  font-size: 1.125rem;
+  font-weight: bold;
+}

@@ -4,13 +4,12 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import TemplateView
-from decouple import config
-import random
+import random, time
 from .models import Clothings, PhoneAndAccessories, HomeAndOffice, HealthAndBeauty, Gaming, Cart, AllProducts
 from .forms import ClothingsForm, AllProductsForm, PhoneAndAccessoriesForm, GamingForm, HomeAndOfficeForm, HealthAndBeautyForm, CartForm
 from users.models import CustomUser
 from .decorators import for_admins
-import time
+
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
