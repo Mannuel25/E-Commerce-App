@@ -1,6 +1,6 @@
 # Preview ✨
 
-![Image](preview.png)
+![Image](preview.PNG)
 
 # Guidelines on how to run locally 💻
 
