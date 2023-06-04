@@ -1,13 +1,3 @@
-<div align="center">
-<img src="static/images/logo.png" alt="Picture" style="display: block; margin: 0 auto"/>
-</div>
-
-<hr>
-
-<div align="center">
-<p style="font-size:15px;"Pandora is your go-to online shopping store.</p>
-</div>
-
 # Preview ✨
 
 ![Image](preview.png)
