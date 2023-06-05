@@ -1,6 +1,6 @@
 # Preview ✨
 
-![Image](preview.PNG)
+![Image](static\images\preview.PNG)
 
 # Guidelines on how to run locally 💻
 
@@ -63,12 +63,12 @@ python manage.py runserver
 <hr>
 
 ## Products 🛍️
-##### Every product to be added must be grouped into the following categories: `clothings, phones_accessories, gamings_accessories, health_beauty, home_office`. Each product should have an image which should be added in their respective folder:
-    - Clothings: Create a `clothings` folder and add all your images.
-    - Phones & Accessories: Create a `phones_accessories` folder and add all your images.
-    - Gamings: Create a `gamings_accessories` folder and add all your images.
-    - Health & Beauty: Create a `health_beauty` folder and add all your images.
-    - Home & Beauty: Create a `home_office` folder and add all your images.
+##### Every product to be added must be grouped into the following categories: `Clothings, Phone and Accessories, Home and Office, Health and Beauty, Gaming`. Each product should have an image which should be added in their respective folder. Add all:
+    - Clothing product images to `clothings` folder.
+    - Phones & Accessories product images to `phones_accessories` folder.
+    - Gaming product images to `gamings_accessories` folder.
+    - Health & Beauty product images to `health_beauty` folder.
+    - Home & Office product images to `home_office` folder.
 
 
 # License 🔐
