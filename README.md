@@ -1,6 +1,6 @@
 # Preview ✨
 
-![Image](static\images\preview.PNG)
+![Image](preview.PNG)
 
 # Guidelines on how to run locally 💻
 
@@ -17,7 +17,7 @@ Change your directory to where you cloned the repository
 cd E-Commerce-App
 ```
 
-## Create a virtual environment in the cheqqit directory
+## Create a virtual environment in the E-Commerce-App directory
 Ensure you are in the cheqqit directory, run this command to create a virtual environment:
 ```
 python -m venv .\venv
